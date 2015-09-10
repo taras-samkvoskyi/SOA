@@ -4,11 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Runtime;
 using System.Reflection;
-
+using Core.Common.Core;
+using FluentValidation;
 
 namespace CarRental.Client.Entities
 {
-    public class Car
+    public class Car : ObjectBase
     {
         int _CarId;
         string _Description;
@@ -20,7 +21,14 @@ namespace CarRental.Client.Entities
         public int CarId
         {
             get { return _CarId; }
-            set { _CarId = value; }
+            set
+            {
+                if (_CarId != value)
+                {
+                    _CarId = value;
+                    OnPropertyChanged(() => CarId);
+                }
+            }
         }
 
         public string Description
@@ -52,5 +60,23 @@ namespace CarRental.Client.Entities
             get { return _CurrentlyRented; }
             set { _CurrentlyRented = value; }
         }
+
+        class CarValidator : AbstractValidator<Car>
+        {
+            public CarValidator()
+            {
+                RuleFor(obj => obj.Description).NotEmpty();
+                RuleFor(obj => obj.Color).NotEmpty();
+                RuleFor(obj => obj.RentalPrice).GreaterThan(0);
+                RuleFor(obj => obj.Year).GreaterThan(2000).LessThanOrEqualTo(DateTime.Now.Year);
+            }
+        }
+
+        protected override IValidator GetValidator()
+        {
+            return new CarValidator();
+        }
     }
+
+   
 }
