@@ -9,7 +9,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Common.Extentions
+namespace Core.Common.Extensions
 {
 
     public static class CoreExtensions

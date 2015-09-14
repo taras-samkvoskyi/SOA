@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Runtime;
-using System.Reflection;
-using Core.Common.Core;
+﻿using Core.Common.Core;
 using FluentValidation;
+using System;
 
 namespace CarRental.Client.Entities
 {
@@ -34,31 +29,74 @@ namespace CarRental.Client.Entities
         public string Description
         {
             get { return _Description; }
-            set { _Description = value; }
+            set
+            {
+                if (_Description != value)
+                {
+                    _Description = value;
+                    OnPropertyChanged(() => Description);
+                }
+            }
         }
 
         public string Color
         {
             get { return _Color; }
-            set { _Color = value; }
+            set
+            {
+                if (_Color != value)
+                {
+                    _Color = value;
+                    OnPropertyChanged(() => Color);
+                }
+            }
         }
 
         public int Year
         {
             get { return _Year; }
-            set { _Year = value; }
+            set
+            {
+                if (_Year != value)
+                {
+                    _Year = value;
+                    OnPropertyChanged(() => Year);
+                }
+            }
         }
 
         public decimal RentalPrice
         {
             get { return _RentalPrice; }
-            set { _RentalPrice = value; }
+            set
+            {
+                if (_RentalPrice != value)
+                {
+                    _RentalPrice = value;
+                    OnPropertyChanged(() => RentalPrice);
+                }
+            }
         }
 
         public bool CurrentlyRented
         {
             get { return _CurrentlyRented; }
-            set { _CurrentlyRented = value; }
+            set
+            {
+                if (_CurrentlyRented != value)
+                {
+                    _CurrentlyRented = value;
+                    OnPropertyChanged(() => CurrentlyRented);
+                }
+            }
+        }
+
+        public string LongDescription
+        {
+            get
+            {
+                return string.Format("{0} {1} {2}", _Year, _Color, _Description);
+            }
         }
 
         class CarValidator : AbstractValidator<Car>
@@ -68,7 +106,7 @@ namespace CarRental.Client.Entities
                 RuleFor(obj => obj.Description).NotEmpty();
                 RuleFor(obj => obj.Color).NotEmpty();
                 RuleFor(obj => obj.RentalPrice).GreaterThan(0);
-                RuleFor(obj => obj.Year).GreaterThan(2000).LessThanOrEqualTo(DateTime.Now.Year);
+                RuleFor(obj => obj.Year).GreaterThan(2000).LessThanOrEqualTo(DateTime.Now.Year + 1);
             }
         }
 
@@ -77,6 +115,4 @@ namespace CarRental.Client.Entities
             return new CarValidator();
         }
     }
-
-   
 }

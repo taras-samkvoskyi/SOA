@@ -52,9 +52,6 @@
     <Compile Include="Reservation.cs" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Core.Common\Core.Common.csproj">
       <Project>{53fb0cb9-72bf-41df-8046-29c1c33449f6}</Project>
       <Name>Core.Common</Name>

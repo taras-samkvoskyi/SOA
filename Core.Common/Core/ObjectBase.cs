@@ -2,16 +2,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Composition.Hosting;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.Serialization;
 using System.Text;
+using Core.Common.Contracts;
+using Core.Common.Extensions;
 using Core.Common.Utils;
 using FluentValidation;
 using FluentValidation.Results;
-using Core.Common.Contracts;
-using Core.Common.Extentions;
 
 namespace Core.Common.Core
 {
@@ -28,7 +29,7 @@ namespace Core.Common.Core
 
         protected IEnumerable<ValidationFailure> _ValidationErrors = null;
 
-       // public static CompositionContainer Container { get; set; }
+        public static CompositionContainer Container { get; set; }
 
         #region IExtensibleDataObject Members
 
@@ -246,5 +247,4 @@ namespace Core.Common.Core
         #endregion
 
     }
-
 }
