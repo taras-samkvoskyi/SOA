@@ -47,6 +47,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,6 +62,7 @@
     <Compile Include="Core\ObjectBase.cs" />
     <Compile Include="Core\TempObjectBase.cs" />
     <Compile Include="Data\DataRepositoryBase.cs" />
+    <Compile Include="Exceptions\NotFoundException.cs" />
     <Compile Include="Extentions\CoreExtentions.cs" />
     <Compile Include="Extentions\DataExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

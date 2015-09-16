@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{615C3739-0B2F-4573-BCA6-1BA606262045}</ProjectGuid>
+    <ProjectGuid>{249B8AD2-C111-4614-B735-7CB218DBEBCB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Core.Common.Contracts</RootNamespace>
-    <AssemblyName>Core.Common.Contracts</AssemblyName>
+    <RootNamespace>CarRental.Business</RootNamespace>
+    <AssemblyName>CarRental.Business</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,14 +41,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IAccountOwnedEntity.cs" />
-    <Compile Include="IBusinessEngine.cs" />
-    <Compile Include="IDataRepository.cs" />
-    <Compile Include="IBusinessEngineFactory.cs" />
-    <Compile Include="IDataRepositoryFactory.cs" />
-    <Compile Include="IDirtyCapable.cs" />
-    <Compile Include="IIdentifiableEntity.cs" />
+    <Compile Include="Business Engines\CarRentalEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CarRental.Business.Common\CarRental.Business.Common.csproj">
+      <Project>{982f18db-f0dd-4c0f-a344-6225ac180567}</Project>
+      <Name>CarRental.Business.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CarRental.Business.Entities\CarRental.Business.Entities.csproj">
+      <Project>{59321e9f-0a76-49ab-aff2-b33d06957aa6}</Project>
+      <Name>CarRental.Business.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CarRental.Data.Contracts\CarRental.Data.Contracts.csproj">
+      <Project>{e0107a50-2726-4b08-941f-32d2af2dfc10}</Project>
+      <Name>CarRental.Data.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core.Common.Contracts\Core.Common.Contracts.csproj">
+      <Project>{615c3739-0b2f-4573-bca6-1ba606262045}</Project>
+      <Name>Core.Common.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core.Common\Core.Common.csproj">
+      <Project>{53FB0CB9-72BF-41DF-8046-29C1C33449F6}</Project>
+      <Name>Core.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
