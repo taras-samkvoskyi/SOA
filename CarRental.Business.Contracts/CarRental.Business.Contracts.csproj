@@ -42,16 +42,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data Contracts\CustomerRentalData.cs" />
+    <Compile Include="Data Contracts\CustomerReservationData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service Contracts\IAccountService.cs" />
     <Compile Include="Service Contracts\IInventoryService.cs" />
+    <Compile Include="Service Contracts\IRentalService.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data Contracts\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\CarRental.Business.Entities\CarRental.Business.Entities.csproj">
       <Project>{59321e9f-0a76-49ab-aff2-b33d06957aa6}</Project>
       <Name>CarRental.Business.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CarRental.Common\CarRental.Common.csproj">
+      <Project>{f74ea833-8a22-4623-b27e-6a5fde1687aa}</Project>
+      <Name>CarRental.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\CarRental.Data.Contracts\CarRental.Data.Contracts.csproj">
       <Project>{e0107a50-2726-4b08-941f-32d2af2dfc10}</Project>
@@ -60,6 +66,10 @@
     <ProjectReference Include="..\Core.Common.Contracts\Core.Common.Contracts.csproj">
       <Project>{615c3739-0b2f-4573-bca6-1ba606262045}</Project>
       <Name>Core.Common.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core.Common.ServiceModel\Core.Common.ServiceModel.csproj">
+      <Project>{2fca4739-6a67-4c8d-9f0f-9179fd2e9eb5}</Project>
+      <Name>Core.Common.ServiceModel</Name>
     </ProjectReference>
     <ProjectReference Include="..\Core.Common\Core.Common.csproj">
       <Project>{53fb0cb9-72bf-41df-8046-29c1c33449f6}</Project>

@@ -1,7 +1,7 @@
 ﻿using CarRental.Business.Entities;
 using Core.Common.Contracts;
 
-namespace CarRental.Data.Contracts.Repository_Interfaces
+namespace CarRental.Data.Contracts
 {
     public interface IAccountRepository : IDataRepository<Account>
     {

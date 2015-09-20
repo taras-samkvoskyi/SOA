@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.Composition;
-using System.Linq;
-using System.ServiceModel;
+﻿using CarRental.Business.Common;
 using CarRental.Business.Contracts;
 using CarRental.Business.Entities;
+using CarRental.Common;
 using CarRental.Data.Contracts;
 using Core.Common.Contracts;
 using Core.Common.Exceptions;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.Composition;
+using System.Linq;
 using System.Security.Permissions;
-using CarRental.Business.Common;
+using System.ServiceModel;
 
 namespace CarRental.Business.Managers
 {
@@ -47,7 +48,7 @@ namespace CarRental.Business.Managers
         #region IInventoryService operations
 
         [OperationBehavior(TransactionScopeRequired = true)]
-        // [PrincipalPermission(SecurityAction.Demand, Role = Security.CarRentalAdminRole)]
+        [PrincipalPermission(SecurityAction.Demand, Role = Security.CarRentalAdminRole)]
         public Car UpdateCar(Car car)
         {
             return ExecuteFaultHandledOperation(() =>
@@ -66,7 +67,7 @@ namespace CarRental.Business.Managers
         }
 
         [OperationBehavior(TransactionScopeRequired = true)]
-        // [PrincipalPermission(SecurityAction.Demand, Role = Security.CarRentalAdminRole)]
+        [PrincipalPermission(SecurityAction.Demand, Role = Security.CarRentalAdminRole)]
         public void DeleteCar(int carId)
         {
             ExecuteFaultHandledOperation(() =>
@@ -77,8 +78,8 @@ namespace CarRental.Business.Managers
             });
         }
 
-        //   [PrincipalPermission(SecurityAction.Demand, Role = Security.CarRentalAdminRole)]
-        //[PrincipalPermission(SecurityAction.Demand, Name = Security.CarRentalUser)]
+        [PrincipalPermission(SecurityAction.Demand, Role = Security.CarRentalAdminRole)]
+        [PrincipalPermission(SecurityAction.Demand, Name = Security.CarRentalUser)]
         public Car GetCar(int carId)
         {
             return ExecuteFaultHandledOperation(() =>
@@ -96,8 +97,8 @@ namespace CarRental.Business.Managers
             });
         }
 
-        //  [PrincipalPermission(SecurityAction.Demand, Role = Security.CarRentalAdminRole)]
-        // [PrincipalPermission(SecurityAction.Demand, Name = Security.CarRentalUser)]
+        [PrincipalPermission(SecurityAction.Demand, Role = Security.CarRentalAdminRole)]
+        [PrincipalPermission(SecurityAction.Demand, Name = Security.CarRentalUser)]
         public Car[] GetAllCars()
         {
             return ExecuteFaultHandledOperation(() =>
@@ -117,7 +118,8 @@ namespace CarRental.Business.Managers
                 return cars.ToArray();
             });
         }
-
+        [PrincipalPermission(SecurityAction.Demand, Role = Security.CarRentalAdminRole)]
+        [PrincipalPermission(SecurityAction.Demand, Name = Security.CarRentalUser)]
         public Car[] GetAvailableCars(DateTime pickupDate, DateTime returnDate)
         {
             return ExecuteFaultHandledOperation(() =>
