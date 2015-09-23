@@ -1,0 +1,150 @@
+﻿@{
+    ViewBag.Title = "Account Registration";
+}
+@section scripts
+{
+    <script src="@Url.Content("~/Binding/Models/AccountRegisterModel.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Binding/ViewModels/AccountRegisterViewModel.js")" type="text/javascript"></script>
+}
+@section ko_apply
+{
+    var viewModel = new CarRental.AccountRegisterViewModel();
+    ko.applyBindingsWithValidation(viewModel, $("#registration")[0], { insertMessages: false, messagesOnModified: false, grouping: { deep: true }});
+}
+
+<div id="registration">
+    <div data-bind="visible: viewMode() == 'register1', template: { name: 'register1-template' }"></div>
+    <div data-bind="visible: viewMode() == 'register2', template: { name: 'register2-template' }"></div>
+    <div data-bind="visible: viewMode() == 'register3', template: { name: 'register3-template' }"></div>
+    <div data-bind="visible: viewMode() == 'confirm', template: { name: 'confirm-template' }"></div>
+    <div data-bind="visible: viewMode() == 'welcome', template: { name: 'welcome-template' }"></div>
+</div>
+
+<script type="text/html" id="register1-template">
+    <br /><br />
+    @Html.Partial("~/Views/Shared/_ValidationErrors.cshtml")
+    <div data-bind="with: accountModelStep1">
+        <div class="input-prepend">
+            <span class="add-on" style="width: 140px; text-align: left;">First name:</span>
+            <input type="text" data-bind="value: FirstName" style="width: 250px;" placeholder="first name" />
+        </div>
+        <div class="input-prepend">
+            <span class="add-on" style="width: 140px; text-align: left;">Last name:</span>
+            <input type="text" data-bind="value: LastName" style="width: 250px;" placeholder="last name" />
+        </div>
+        <div class="input-prepend">
+            <span class="add-on" style="width: 140px; text-align: left;">Address:</span>
+            <input type="text" data-bind="value: Address" style="width: 350px;" placeholder="address" />
+        </div>
+        <div class="input-prepend">
+            <span class="add-on" style="width: 140px; text-align: left;">City:</span>
+            <input type="text" data-bind="value: City" style="width: 350px;" placeholder="city" />
+        </div>
+        <div class="input-prepend">
+            <span class="add-on" style="width: 140px; text-align: left;">State:</span>
+            <input type="text" data-bind="value: State" style="width: 100px;" placeholder="state" />
+        </div>
+        <div class="input-prepend">
+            <span class="add-on" style="width: 140px; text-align: left;">Zip code:</span>
+            <input type="text" data-bind="value: ZipCode" style="width: 150px;" placeholder="zip code" />
+        </div>
+        <hr style="width: 415px; text-align: left;" />
+        <div data-bind="loadingWhen: $parent.viewModelHelper.isLoading">
+            <button type="button" class="btn btn-info" data-bind="click: $parent.nextStep">Next step</button>
+        </div>
+    </div>
+</script>
+
+<script type="text/html" id="register2-template">
+    <br /><br />
+    @Html.Partial("~/Views/Shared/_ValidationErrors.cshtml")
+    <div data-bind="with: accountModelStep2">
+        <div class="input-prepend">
+            <span class="add-on" style="width: 140px; text-align: left;">Login Email:</span>
+            <input type="text" data-bind="value: LoginEmail" style="width: 250px;" placeholder="login email" />
+        </div>
+        <div class="input-prepend">
+            <span class="add-on" style="width: 140px; text-align: left;">Password:</span>
+            <input type="password" data-bind="value: Password" style="width: 250px;" placeholder="password" />
+        </div>
+        <div class="input-prepend">
+            <span class="add-on" style="width: 140px; text-align: left;">Confirm Password:</span>
+            <input type="password" data-bind="value: PasswordConfirm" style="width: 250px;" placeholder="confirm password" />
+        </div>
+        <hr style="width: 415px; text-align: left;" />
+        <div data-bind="loadingWhen: $parent.viewModelHelper.isLoading">
+            <button type="button" class="btn btn-info" data-bind="click: $parent.prevStep">Previous</button>
+            <button type="button" class="btn btn-info" data-bind="click: $parent.nextStep">Next</button>
+        </div>
+    </div>
+</script>
+
+<script type="text/html" id="register3-template">
+    <br /><br />
+    @Html.Partial("~/Views/Shared/_ValidationErrors.cshtml")
+    <div data-bind="with: accountModelStep3">
+        <div class="input-prepend">
+            <span class="add-on" style="width: 140px; text-align: left;">Credit card #:</span>
+            <input type="text" data-bind="value: CreditCard" style="width: 250px;" placeholder="credi card" />
+        </div>
+        <div class="input-prepend">
+            <span class="add-on" style="width: 140px; text-align: left;">Exp. date:</span>
+            <input type="text" data-bind="value: ExpDate" style="width: 250px;" placeholder="MM/YY" />
+        </div>
+        <hr style="width: 415px; text-align: left;" />
+        <div data-bind="loadingWhen: $parent.viewModelHelper.isLoading">
+            <button type="button" class="btn btn-info" data-bind="click: $parent.prevStep">Previous</button>
+            <button type="button" class="btn btn-info" data-bind="click: $parent.nextStep">Next</button>
+        </div>
+    </div>
+</script>
+
+<script type="text/html" id="confirm-template">
+    <br /><br />
+    @Html.Partial("~/Views/Shared/_ValidationErrors.cshtml")
+    <div>
+        <span class="form-label" style="width: 140px;">First name: </span>
+        <span style="margin-left: 3px; width: 200px;" data-bind="text: accountModelStep1().FirstName"></span>
+    </div>
+    <div>
+        <span class="form-label" style="width: 140px;">Last name: </span>
+        <span style="margin-left: 3px; width: 200px;" data-bind="text: accountModelStep1().LastName"></span>
+    </div>
+    <div>
+        <span class="form-label" style="width: 140px;">Address: </span>
+        <span style="margin-left: 3px; width: 200px;" data-bind="text: accountModelStep1().Address"></span>
+    </div>
+    <div>
+        <span class="form-label" style="width: 140px;">City: </span>
+        <span style="margin-left: 3px; width: 200px;" data-bind="text: accountModelStep1().City"></span>
+    </div>
+    <div>
+        <span class="form-label" style="width: 140px;">State: </span>
+        <span style="margin-left: 3px; width: 200px;" data-bind="text: accountModelStep1().State"></span>
+    </div>
+    <div>
+        <span class="form-label" style="width: 140px;">Zip code: </span>
+        <span style="margin-left: 3px; width: 200px;" data-bind="text: accountModelStep1().ZipCode"></span>
+    </div>
+    <div>
+        <span class="form-label" style="width: 140px;">Login email: </span>
+        <span style="margin-left: 3px; width: 200px;" data-bind="text: accountModelStep2().LoginEmail"></span>
+    </div>
+    <div>
+        <span class="form-label" style="width: 140px;">Credit card: </span>
+        <span style="margin-left: 3px; width: 200px;" data-bind="text: accountModelStep3().CreditCard"></span>
+    </div>
+    <div>
+        <span class="form-label" style="width: 140px;">Exp. date: </span>
+        <span style="margin-left: 3px; width: 200px;" data-bind="text: accountModelStep3().ExpDate"></span>
+    </div>
+    <hr style="width: 415px; text-align: left;" />
+    <div data-bind="loadingWhen: viewModelHelper.isLoading">
+        <button type="button" class="btn btn-info" data-bind="click: prevStep">Previous</button>
+        <button type="button" class="btn btn-info" data-bind="click: createAccount">Create Account</button>
+    </div>
+</script>
+
+<script type="text/html" id="welcome-template">
+    <h2>Welcome to CarRental!</h2>
+</script>

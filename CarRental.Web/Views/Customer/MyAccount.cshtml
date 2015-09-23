@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "My Account";
+    ViewBag.Name = "Account";
+}
+@section scripts
+{
+    <script src="@Url.Content("~/Binding/Models/MyAccountModel.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Binding/ViewModels/MyAccountViewModel.js")" type="text/javascript"></script>
+}
+@section ko_apply
+{
+    var viewModel = new CarRental.MyAccountViewModel();
+    ko.applyBindingsWithValidation(viewModel, $("#myaccount")[0], { insertMessages: false, messagesOnModified: false, grouping: { deep: true }});
+}
+<br />
+<h2>My Account</h2>
+
+<div id="myaccount">
+    <div data-bind="visible: viewMode() == 'account', template: { name: 'account-template' }"></div>
+    <div data-bind="visible: viewMode() == 'success', template: { name: 'success-template' }"></div>
+</div>
+
+<script type="text/html" id="account-template">
+    @Html.Partial("~/Views/Shared/_ValidationErrors.cshtml")
+    <div data-bind="with: accountModel">
+        <div class="input-prepend">
+            <span class="add-on" style="width: 140px; text-align: left;">First name:</span>
+            <input type="text" data-bind="value: FirstName" style="width: 250px;" placeholder="first name" />
+        </div>
+        <div class="input-prepend">
+            <span class="add-on" style="width: 140px; text-align: left;">Last name:</span>
+            <input type="text" data-bind="value: LastName" style="width: 250px;" placeholder="last name" />
+        </div>
+        <div class="input-prepend">
+            <span class="add-on" style="width: 140px; text-align: left;">Address:</span>
+            <input type="text" data-bind="value: Address" style="width: 350px;" placeholder="address" />
+        </div>
+        <div class="input-prepend">
+            <span class="add-on" style="width: 140px; text-align: left;">City:</span>
+            <input type="text" data-bind="value: City" style="width: 350px;" placeholder="city" />
+        </div>
+        <div class="input-prepend">
+            <span class="add-on" style="width: 140px; text-align: left;">State:</span>
+            <input type="text" data-bind="value: State" style="width: 100px;" placeholder="state" />
+        </div>
+        <div class="input-prepend">
+            <span class="add-on" style="width: 140px; text-align: left;">Zip code:</span>
+            <input type="text" data-bind="value: ZipCode" style="width: 150px;" placeholder="zip code" />
+        </div>
+        <div class="input-prepend">
+            <span class="add-on" style="width: 140px; text-align: left;">Credit card #:</span>
+            <input type="text" data-bind="value: CreditCard" style="width: 250px;" placeholder="credi card" />
+        </div>
+        <div class="input-prepend">
+            <span class="add-on" style="width: 140px; text-align: left;">Exp. date:</span>
+            <input type="text" data-bind="value: ExpDate" style="width: 250px;" placeholder="MM/YY" />
+        </div>
+        <hr style="width: 415px; text-align: left;" />
+        <div data-bind="loadingWhen: $parent.viewModelHelper.isLoading">
+            <button type="button" class="btn btn-info" data-bind="click: $parent.save">Save</button>
+        </div>
+    </div>
+</script>
+
+<script type="text/html" id="success-template">
+    <h2>Account information updated!</h2>
+</script>

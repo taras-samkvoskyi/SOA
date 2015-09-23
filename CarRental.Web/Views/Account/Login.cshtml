@@ -1,0 +1,39 @@
+﻿@model CarRental.Web.Models.AccountLoginModel
+@{
+    ViewBag.Title = "Account Login";
+}
+@section scripts
+{
+    <script src="@Url.Content("~/Binding/Models/AccountLoginModel.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Binding/ViewModels/AccountLoginViewModel.js")" type="text/javascript"></script>
+}
+@section ko_apply
+{
+    var returnUrl = '@Model.ReturnUrl';
+
+    var viewModel = new CarRental.AccountLoginViewModel(returnUrl);
+    ko.applyBindingsWithValidation(viewModel, $("#login")[0], { insertMessages: false, messagesOnModified: false, grouping: { deep: true }});
+}
+
+<div id="login">
+    <br /><br />
+    @Html.Partial("~/Views/Shared/_ValidationErrors.cshtml")
+    <div data-bind="with: accountModel">
+        <div class="input-prepend">
+            <span class="add-on" style="width: 140px; text-align: left;">Login Email:</span>
+            <input type="text" data-bind="value: LoginEmail" style="width: 250px;" placeholder="login email" />
+        </div>
+        <div class="input-prepend">
+            <span class="add-on" style="width: 140px; text-align: left;">Password:</span>
+            <input type="password" data-bind="value: Password" style="width: 250px;" placeholder="password" />
+        </div>
+        <div class="input-prepend">
+            <span class="add-on" style="width: 140px; text-align: left;">Remember Me:</span>
+            <input type="checkbox" data-bind="value: RememberMe" style="margin-left: 5px;" />
+        </div>
+        <hr style="width: 415px; text-align: left;" />
+        <div data-bind="loadingWhen: $parent.viewModelHelper.isLoading">
+            <button type="button" class="btn btn-info" data-bind="click: $parent.login">Login</button>
+        </div>
+    </div>
+</div>

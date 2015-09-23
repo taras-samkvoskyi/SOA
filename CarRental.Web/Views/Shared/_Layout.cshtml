@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head runat="server">
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title - Car Rental System</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <link href="~/Content/loading-placeholder.css" rel="stylesheet" media="screen">
+        <link href="~/Content/Layout.css" rel="stylesheet" media="screen">
+        <link href="~/Content/toastr.css" rel="stylesheet" media="screen">
+        <meta name="viewport" content="width=device-width" />
+        @Styles.Render("~/Content/css")
+        @Styles.Render("~/Content/themes/base/css")
+        @Styles.Render("~/Content/bootstrap")
+        @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryui")
+        <!--<script src="@Url.Content("~/Scripts/BrowserCheck.js")" type="text/javascript"></script>-->
+        <script src="@Url.Content("~/Scripts/knockout-2.2.1.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/knockout.mapping-latest.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/knockout.validation.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/moment.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/toastr-1.1.5.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/App.js")" type="text/javascript"></script>
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("head_scripts", required: false)
+    </head>
+    <body>
+        @Html.Partial("~/Views/Shared/_TopBar.cshtml")
+        <div class="wrapper">
+            <div class="container" style="padding-top: 15px;">
+                <div class="content-wrapper main-content clear-fix">
+                    <div style="margin-top: 35px;">
+                        <a href="@Url.Action("Index", "Home")"><img src="@Url.Content("~/Images/Pluralsight.png")"
+                             style="margin-top: 30px; width: 320px; height: 80px;" /></a>
+                    </div>
+                    <section id="mainbody">
+                        @RenderBody()
+                    </section>
+                </div>
+            </div>
+            <div class="push"></div>
+        </div>
+        @Html.Partial("~/Views/Shared/_BottomBar.cshtml")
+        
+        @RenderSection("scripts", required: false)
+        <script type="text/javascript">
+            CarRental.rootPath = '@Url.Content("~")';
+            $(document).ready(function () {
+                @RenderSection("ko_apply", required: false)
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+﻿
+html, body {
+    height: 100%;
+    background-color: #f5f5f5;
+}
+.heading-container {
+    margin: 0 auto;
+    max-width: 100%;
+}
+.container {
+    margin: 0 auto;
+    max-width: 960px;
+}
+.container > hr {
+    margin: 30px 0;
+}
+.container .credit {
+    margin: 20px 0;
+}
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -65px;
+    background-color: white;
+    max-width: 960px;
+}
+.push {
+    height: 65px;
+}
+.footer {
+    height: 65px;
+}

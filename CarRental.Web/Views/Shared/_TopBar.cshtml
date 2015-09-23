@@ -1,0 +1,45 @@
+﻿<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <ul class="nav nav-pills pull-right">
+                <li class="@if (ViewBag.Name == "Home")
+                    {<text>active</text>}"><a href="@Url.Action("Index", "Home")">Home</a></li>
+                <li class="dropdown @if (ViewBag.Name == "Login")
+                    {<text>active</text>}">
+                    @if (!Request.IsAuthenticated)
+                    {
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Not Logged In <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                            <li><a href="@Url.Action("Login", "Account")">Login</a></li>
+                            <li><a href="@Url.Action("Register", "Account")">Register</a></li>
+                            <li class="divider"></li>
+                            <li><a href="@Url.Action("ForgotPassword", "Account")">Forgot Password</a></li>
+                        </ul>
+                    }
+                    else
+                    {
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">@User.Identity.Name <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                            <li><a href="@Url.Action("MyAccount", "Customer")">My Account</a></li>
+                            <li class="divider"></li>
+                            <li><a href="@Url.Action("ChangePassword", "Account")">Change Password</a></li>
+                            <li><a href="@Url.Action("Logout", "Account")">Log Out</a></li>
+                        </ul>
+                    }
+                </li>
+                @if (Request.IsAuthenticated)
+                {
+                    <li class="@if (ViewBag.Name == "CustomerActions")
+                        {<text>active</text>}">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Customer Actions <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                            <li><a href="@Url.Action("ReserveCar", "Customer")">Reserve a Car</a></li>
+                            <li><a href="@Url.Action("CurrentReservations", "Customer")">Current Reservations</a></li>
+                            <li><a href="@Url.Action("RentalHistory", "Customer")">My Rental History</a></li>
+                        </ul>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

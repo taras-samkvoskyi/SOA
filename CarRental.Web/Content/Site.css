@@ -1,0 +1,338 @@
+﻿
+#header {
+	background: white;
+	height: 150px;
+}
+
+#menu {
+	background: white;
+    float: left;
+    width: 230px;
+}
+
+#mainbody {
+	background: white;
+	margin-left: 5px;
+	margin-right: 5px;
+    /* with menu on left: margin-left: 245px; */
+}
+
+#footer2 {
+    clear: both;
+	background: white;
+	height: 66px;
+    padding-top: 50px;
+}
+
+#logindisplay
+{
+    font-size:1.1em;
+    display:block;
+    text-align:right;
+    margin:10px;
+}
+
+#logindisplay a:link
+{
+    color: Navy;
+    text-decoration: underline;
+}
+
+#logindisplay a:visited
+{
+    color: Navy;
+    text-decoration: underline;
+}
+
+#logindisplay a:hover
+{
+    color: Navy;
+    text-decoration: none;
+}
+
+.page-heading {
+    font-family: 'Segoe UI', Arial;
+    font-size: 28px;
+    color: steelblue;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-right: 10px;
+    text-align: left;
+}
+
+.page-subheading {
+    font-family: 'Segoe UI', Arial;
+    font-size: 20px;
+    color: lightsteelblue;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.row-button-group {
+    text-align: right;
+}
+
+.form-label {
+    width: 200px;
+    text-align: left; 
+    border-radius: 4px 0 0 4px;
+    height: 22px;
+    padding: 4px 5px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+    text-shadow: 0 1px 0 #ffffff;
+    background-color: #eeeeee;
+    border: 1px solid #ccc;
+}
+
+.req-indicator {
+    color: red;
+    font-family: 'Segoe UI';
+    margin-left: 5px;
+    text-align: right;
+    vertical-align: central;
+}
+
+img.logo {
+    max-width: 300px;
+    max-height: 300px;
+}
+
+img.logo-small {
+    max-width: 175px;
+    max-height: 175px;
+}
+
+/* info and errors */
+.message-info {
+    border: 1px solid;
+    clear: both;
+    padding: 10px 20px;
+}
+
+.message-error {
+    clear: both;
+    color: #e80c4d;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 20px 0 10px 0;
+}
+
+.message-success {
+    color: #7ac0da;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin: 20px 0 10px 0;
+}
+
+.error {
+    color: #e80c4d;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #e80c4d;
+    font-weight: bold;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #e80c4d;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #e80c4d;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.sections {
+    background-color: #BBB;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 7px;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #D6D6D6), color-stop(0.4, silver), color-stop(1,#A4A4A4));
+    margin: 10px 0 16px 0;
+    font-size: 24px;
+}
+
+.sections li {
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-block;
+    padding: 0.5em 1.5em;
+    cursor: pointer;
+    color: #444;
+    text-shadow: #F7F7F7 0 1px 1px;
+    border-left: 1px solid #DDD;
+    border-right: 1px solid #888;
+}
+
+.sections li:first-child {
+    border-left: none;
+    border-radius: 7px 0 0 7px;
+}
+
+.sections .selected {
+    background-color: #444 !important;
+    color: white;
+    text-shadow: none;
+    border-right-color: #AAA;
+    border-left: none;
+    box-shadow: inset 1px 2px 6px #070707;
+}
+
+.list {
+    border-radius: 7px;
+    padding: 0.5em 0.5em;
+    display: inline-block;
+    vertical-align:top; 
+    overflow:hidden;
+    border:solid grey 1px; 
+    width: 230px;
+    float: left;
+}
+
+.list-button-bar {
+    padding: 5px 0px 5px 0px;
+}
+
+.list-button-bar button {
+    border-radius: 3px;
+    font-weight: normal;
+    font-family: 'Segoe UI';
+    font-size: 14px;
+    height:20px;
+    vertical-align: text-top;
+    padding: 0px 4px 2px 4px;
+}
+
+.list-edit-text {
+    width: 210px;
+    height: 18px;
+}
+
+.list-edit-section {
+    vertical-align: top;
+}
+
+.text-button-bar {
+    padding: 5px 0px 5px 0px;
+    text-align: right;
+}
+
+.text-button-bar button {
+    border-radius: 3px;
+    font-weight: normal;
+    font-family: 'Segoe UI';
+    font-size: 14px;
+    height:20px;
+    vertical-align: text-top;
+    padding: 0px 4px 2px 4px;
+}
+
+#dist-list-container {
+
+}
+
+#dist-list-container td {
+    vertical-align: top;
+}
+
+
+/* jQuery mobile styles
+-----------------------------------------------------------*/
+
+/* Make listview buttons fill the whole horizontal width of the screen */
+.ui-li .ui-btn-inner a.ui-link-inherit, .ui-li-static.ui-li {
+    padding-right: 15px;
+}
+
+.ui-bar-a, .ui-body-a, .ui-btn-up-a, .ui-btn-hover-a, .ui-btn-down-a,
+.ui-bar-b, .ui-body-b, .ui-btn-up-b, .ui-btn-hover-b, .ui-btn-down-b,
+.ui-bar-c, .ui-body-c, .ui-btn-up-c, .ui-btn-hover-c, .ui-btn-down-c,
+.ui-bar-d, .ui-body-d, .ui-btn-up-d, .ui-btn-hover-d, .ui-btn-down-d,
+.ui-bar-e, .ui-body-e, .ui-btn-up-e, .ui-btn-hover-e, .ui-btn-down-e,
+.ui-btn-active  {
+    text-shadow: none;
+}
+
+/* Mobility styles */
+
+ul.mobile-menu {
+    font-family: sans-serif;
+    color: #ddd;
+    text-align: center;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+ul.mobile-menu li.mobile-menu-item {
+    border-radius: 5px;
+    display: block;
+    padding: 0.5em 0.6em;
+    background-color: #F5F5F5;
+    border: 1px solid #666;
+    margin-bottom: 3px;
+    text-align: left;
+}
+
+ul.mobile-menu li.mobile-menu-item a {
+  display: block;
+  padding: 1px 6px;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.top-bar {
+    margin-bottom: 10px;
+    margin-left: 4px;
+    padding: 0.5em 0.6em;
+}
+
+.top-bar a {
+    text-decoration: none;
+    display: block;
+    color: #008B8B;
+    font-weight: bold;
+}
+
+.loginContainer {
+    width: 100%;
+}
+
+.loginManual {
+    float: left;
+    width: 50%;
+}
+
+.loginOpenID {
+    float: left;
+    width: 40%;
+    margin-left: 50px;
+}
+
+.form-label {
+    text-align: left; 
+    border-radius: 4px 0 0 4px;
+    padding: 6px 5px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+    text-shadow: 0 1px 0 #ffffff;
+    background-color: #eeeeee;
+    border: 1px solid #ccc;
+}
